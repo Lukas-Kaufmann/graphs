@@ -1,0 +1,49 @@
+{
+  "vertexes": [
+    "A", "B", "C", "D", "BABABUY"
+  ],
+  "edges": [
+    {
+      "from": "A",
+      "to": "B",
+      "attributes": {
+        "weight" : 1
+      }
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "attributes": {
+        "weight" : 2
+      }
+    },{
+      "from": "B",
+      "to": "C",
+      "attributes": {
+        "weight" : 1
+      }
+    },{
+      "from": "C",
+      "to": "B",
+      "attributes": {
+        "weight" : 1
+      }
+    },
+    {
+      "from": "D",
+      "to": "C",
+      "attributes": {
+        "weight" : 1
+      }
+    },
+    {
+      "from": "C",
+      "to": "A",
+      "attributes": {
+        "weight" : 1
+      }
+    }
+  ]
+
+
+}
