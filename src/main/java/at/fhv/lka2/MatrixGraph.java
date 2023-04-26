@@ -2,7 +2,7 @@ package at.fhv.lka2;
 
 import java.util.*;
 
-public class MatrixGraph<T> implements Graph<T> {
+public class MatrixGraph<T, K, V> implements Graph<T, K, V> {
     private int[][] adjacencyMatrix;
     private Map<T, Integer> vertexIndices;
 
@@ -29,7 +29,7 @@ public class MatrixGraph<T> implements Graph<T> {
         }
     }
 
-    public void addDirectedEdge(T source, T destination) {
+    public void addDirectedEdge(T source, T destination, Map<K, V> attributes) {
         addVertex(source);
         addVertex(destination);
 
@@ -39,9 +39,9 @@ public class MatrixGraph<T> implements Graph<T> {
         adjacencyMatrix[sourceIndex][destinationIndex] = 1;
     }
 
-    public void addEdge(T source, T destination) {
-        addDirectedEdge(source, destination);
-        addDirectedEdge(destination, source);
+    public void addEdge(T source, T destination, Map<K, V> attributes) {
+        addDirectedEdge(source, destination, attributes);
+        addDirectedEdge(destination, source, attributes);
     }
 
     public void removeVertex(T vertex) {

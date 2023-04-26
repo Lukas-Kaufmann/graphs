@@ -2,7 +2,7 @@ package at.fhv.lka2;
 
 import java.util.*;
 
-public class AdjacencylistGraph<T> implements Graph<T> {
+public class AdjacencylistGraph<T, K, V> implements Graph<T, K, V> {
     private Map<T, List<T>> adjacencyList;
 
     public AdjacencylistGraph() {
@@ -15,7 +15,7 @@ public class AdjacencylistGraph<T> implements Graph<T> {
     }
 
     @Override
-    public void addDirectedEdge(T source, T destination) {
+    public void addDirectedEdge(T source, T destination, Map<K, V> attributes) {
         if (!adjacencyList.containsKey(source))
             addVertex(source);
 
@@ -26,7 +26,7 @@ public class AdjacencylistGraph<T> implements Graph<T> {
     }
 
     @Override
-    public void addEdge(T a, T b) {
+    public void addEdge(T a, T b, Map<K, V> attributes) {
         if (!adjacencyList.containsKey(a))
             addVertex(a);
 
