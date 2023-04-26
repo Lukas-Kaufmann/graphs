@@ -2,7 +2,7 @@ package at.fhv.lka2;
 
 import java.util.*;
 
-public class MatrixGraph<T> {
+public class MatrixGraph<T> implements Graph<T> {
     private int[][] adjacencyMatrix;
     private Map<T, Integer> vertexIndices;
 
