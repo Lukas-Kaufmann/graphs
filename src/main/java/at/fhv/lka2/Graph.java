@@ -1,6 +1,9 @@
 package at.fhv.lka2;
 
+import at.fhv.lka2.util.Pair;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface Graph<T, K, V> {
@@ -13,5 +16,7 @@ public interface Graph<T, K, V> {
     void removeVertex(T vertex);
 
     void removeEdge(T source, T destination);
+
+    List<Pair<T, Map<K, V>>> getNeighbours(T vertex);
 
 }

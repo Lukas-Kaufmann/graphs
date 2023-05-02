@@ -1,5 +1,7 @@
 package at.fhv.lka2;
 
+import at.fhv.lka2.util.Pair;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -53,4 +55,10 @@ public class ObjectGraph<T, K, V> implements Graph<T, K, V> {
     public void removeEdge(T source, T destination) {
         this.edges.removeIf((e) -> e.from.equals(source) && e.to.equals(destination));
     }
+
+    @Override
+    public List<Pair<T, Map<K, V>>> getNeighbours(T vertex) {
+        return null;
+    }
+
 }

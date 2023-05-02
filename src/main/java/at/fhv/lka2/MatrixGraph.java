@@ -1,5 +1,7 @@
 package at.fhv.lka2;
 
+import at.fhv.lka2.util.Pair;
+
 import java.util.*;
 
 public class MatrixGraph<T, K, V> implements Graph<T, K, V> {
@@ -87,6 +89,12 @@ public class MatrixGraph<T, K, V> implements Graph<T, K, V> {
 
         adjacencyMatrix[sourceIndex][destinationIndex] = 0;
     }
+
+    @Override
+    public List<Pair<T, Map<K, V>>> getNeighbours(T vertex) {
+        return null;
+    }
+
 
     public List<T> getAdjacencyList(T vertex) {
         if (!vertexIndices.containsKey(vertex)) {
