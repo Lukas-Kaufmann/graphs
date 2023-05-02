@@ -45,7 +45,7 @@ public class Main {
         Graph graph = loadGraph("sample-graph1-input.json");
         System.out.println(graph.toString());
 
-        Graph<String, String, String> graph1 = new ObjectGraph<>();
+        Graph<String, String, String> graph1 = new AdjacencylistGraph<>();
         //MatrixGraph<String, String, String> graph1 = new MatrixGraph<>(2);
 
         graph1.addVertex("A");
@@ -60,7 +60,10 @@ public class Main {
 
         graph1.removeEdge("A", "C");
 
-        graph1.removeVertex("D");
+        //graph1.removeVertex("D");
+
+        System.out.println("Traversal");
+        graph1.depthTraversal("A");
 
         //System.out.println(graph1);
 
