@@ -45,7 +45,7 @@ public class Main {
         Graph graph = loadGraph("sample-graph1-input.json");
         System.out.println(graph.toString());
 
-        AdjacencylistGraph<String, String, String> graph1 = new AdjacencylistGraph<>();
+        Graph<String, String, String> graph1 = new ObjectGraph<>();
         //MatrixGraph<String, String, String> graph1 = new MatrixGraph<>(2);
 
         graph1.addVertex("A");
