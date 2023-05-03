@@ -1,6 +1,6 @@
 {
   "vertexes": [
-    "A", "B", "C", "D", "E", "F", "G", "H", ""
+    "A", "B", "C", "D", "E"
   ],
   "edges": [
     {
@@ -41,94 +41,14 @@
         "weight" : 1
       }
     },{
-      "from": "A",
-      "to": "F",
-      "attributes": {
-        "weight" : 1
-      }
-    }, {
-      "from": "F",
-      "to": "A",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "F",
-      "to": "G",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "G",
-      "to": "F",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "F",
-      "to": "E",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "G",
-      "to": "H",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "H",
-      "to": "H",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "I",
-      "to": "H",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "H",
-      "to": "I",
-      "attributes": {
-        "weight" : 1
-      }
-    },
-    {
       "from": "B",
-      "to": "I",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "I",
-      "to": "B",
-      "attributes": {
-        "weight" : 1
-      }
-    },
-    {
-      "from": "D",
-      "to": "H",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "H",
       "to": "D",
       "attributes": {
         "weight" : 1
       }
-    },{
+    }, {
       "from": "D",
-      "to": "A",
-      "attributes": {
-        "weight" : 1
-      }
-    },{
-      "from": "E",
-      "to": "C",
+      "to": "B",
       "attributes": {
         "weight" : 1
       }
@@ -140,18 +60,43 @@
       }
     },{
       "from": "E",
-      "to": "G",
+      "to": "C",
       "attributes": {
         "weight" : 1
       }
     },{
-      "from": "G",
+      "from": "E",
+      "to": "D",
+      "attributes": {
+        "weight" : 1
+      }
+    },{
+      "from": "D",
       "to": "E",
       "attributes": {
         "weight" : 1
       }
     },{
       "from": "B",
+      "to": "E",
+      "attributes": {
+        "weight" : 1
+      }
+    },{
+      "from": "E",
+      "to": "B",
+      "attributes": {
+        "weight" : 1
+      }
+    },{
+      "from": "D",
+      "to": "C",
+      "attributes": {
+        "weight" : 1
+      }
+    },
+    {
+      "from": "C",
       "to": "D",
       "attributes": {
         "weight" : 1

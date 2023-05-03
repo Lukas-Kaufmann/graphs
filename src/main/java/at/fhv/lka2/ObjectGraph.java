@@ -57,8 +57,19 @@ public class ObjectGraph<T, K, V> implements Graph<T, K, V> {
     }
 
     @Override
-    public List<Pair<T, Map<K, V>>> getNeighbours(T vertex) {
-        return null;
+    public List<T> getNeighbours(T vertex) {
+        List<T> list = new LinkedList<>();
+        for (Edge e : this.edges) {
+            if (e.from.equals(vertex)) {
+                list.add(e.to);
+            }
+        }
+        return list;
+    }
+
+    @Override
+    public List<T> getVerteces() {
+        return this.verteces;
     }
 
 }

@@ -91,8 +91,31 @@ public class MatrixGraph<T, K, V> implements Graph<T, K, V> {
     }
 
     @Override
-    public List<Pair<T, Map<K, V>>> getNeighbours(T vertex) {
-        return null;
+    public List<T> getNeighbours(T vertex) {
+        List<T> list = new LinkedList<>();
+        Integer index = this.vertexIndices.get(vertex);
+        if (index == null) {
+            return Collections.emptyList();
+        }
+
+        int[] column = this.adjacencyMatrix[index];
+
+        for (int i = 0; i < column.length; i+=1) {
+            if (column[i] > 0) {
+                for (Map.Entry<T, Integer> e: this.vertexIndices.entrySet()) {
+                    if (e.getValue() == i) {
+                        list.add(e.getKey());
+                    }
+                }
+            }
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<T> getVerteces() {
+        return this.vertexIndices.keySet().stream().toList();
     }
 
 

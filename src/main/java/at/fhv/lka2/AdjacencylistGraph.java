@@ -1,9 +1,10 @@
 package at.fhv.lka2;
 
 import at.fhv.lka2.util.Pair;
-import jdk.jshell.spi.ExecutionControl;
+
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AdjacencylistGraph<T, K, V> implements Graph<T, K, V> {
     private Map<T, List<Pair<T, Map<K, V>>>> adjacencyList;
@@ -48,21 +49,25 @@ public class AdjacencylistGraph<T, K, V> implements Graph<T, K, V> {
 
     @Override
     public void removeEdge(T source, T destination) {
-        List<T> sourceList = adjacencyList.get(source);
-        List<T> destinationList = adjacencyList.get(destination);
+        List<Pair<T, Map<K, V>>> sourceList = adjacencyList.get(source);
+        List<Pair<T, Map<K, V>>> destinationList = adjacencyList.get(destination);
 
         if (sourceList != null)
-            sourceList.remove(destination);
+            sourceList.removeIf((e) -> e.first == source);
 
         if (destinationList != null)
-            destinationList.remove(source);
+            sourceList.removeIf((e) -> e.first == destination);
     }
 
     @Override
-    public List<Pair<T, Map<K, V>>> getNeighbours(T vertex) {
-        adjacencyList.get(vertex);
+    public List<T> getNeighbours(T vertex) {
+        return adjacencyList.get(vertex).stream().map((it) -> it.first).collect(Collectors.toList());
     }
 
+    @Override
+    public List<T> getVerteces() {
+        return this.adjacencyList.keySet().stream().toList();
+    }
 
     @Override
     public String toString() {
@@ -71,8 +76,8 @@ public class AdjacencylistGraph<T, K, V> implements Graph<T, K, V> {
         for (T vertex : adjacencyList.keySet()) {
             builder.append(vertex.toString()).append(": ");
 
-            for (T neighbor : adjacencyList.get(vertex)) {
-                builder.append(neighbor.toString()).append(" ");
+            for (Pair<T, Map<K, V>> neighbor : adjacencyList.get(vertex)) {
+                builder.append(neighbor.first.toString()).append(" ");
             }
 
             builder.append("\n");

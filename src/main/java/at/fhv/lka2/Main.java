@@ -3,7 +3,6 @@ package at.fhv.lka2;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,7 +14,7 @@ public class Main {
 
     public static AdjacencylistGraph<String, String, Integer> loadGraph(String filename) throws IOException {
         AdjacencylistGraph<String, String, Integer> graph = new AdjacencylistGraph();
-        Path filePath = Path.of("sample-graph-input.json");
+        Path filePath = Path.of(filename);
 
         String content = Files.readString(filePath);
         JSONObject obj = new JSONObject(content);
@@ -42,8 +41,13 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        Graph graph = loadGraph("sample-graph1-input.json");
+        Graph<String, String, Integer> graph = loadGraph("sample-graph1-input.json");
         System.out.println(graph.toString());
+
+        Traverser<String> traverser = new BreadthTraverser<>();
+
+        System.out.println("TRAVERSE");
+        traverser.printTraverse(graph, "A");
 
         Graph<String, String, String> graph1 = new AdjacencylistGraph<>();
         //MatrixGraph<String, String, String> graph1 = new MatrixGraph<>(2);
@@ -61,9 +65,6 @@ public class Main {
         graph1.removeEdge("A", "C");
 
         //graph1.removeVertex("D");
-
-        System.out.println("Traversal");
-        graph1.depthTraversal("A");
 
         //System.out.println(graph1);
 

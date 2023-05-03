@@ -17,6 +17,20 @@ public interface Graph<T, K, V> {
 
     void removeEdge(T source, T destination);
 
-    List<Pair<T, Map<K, V>>> getNeighbours(T vertex);
+    List<T> getNeighbours(T vertex);
 
+    List<T> getVerteces();
+
+    default boolean hasEulerPath() {
+        List<T> verteces = getVerteces();
+
+        int oddCount = 0;
+
+        for (T v : verteces) {
+            List<T> neighbours = this.getNeighbours(v);
+            oddCount += neighbours.size() % 2;
+        }
+
+        return oddCount <= 2;
+    }
 }
