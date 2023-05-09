@@ -40,3 +40,15 @@ This structure is then loaded by creating a new empty graph then adding all the 
 
 This part has not been implemented.
 
+## Traversals
+
+Traversing was implemented by having a Traverser interfaces, which is implemented by the different strategies.
+Depth-, Breadth- and RecursiveDepthTraversal.
+
+The traverse() method can then be called on any graph.
+
+## Determine if euler path exists
+
+Determining whether or not a graph contains a euler path is done by checking the order of each vertex.
+
+If a graph contains more than two verteces with odd order it doesn't contain an euler path.

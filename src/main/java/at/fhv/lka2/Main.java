@@ -41,10 +41,10 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        Graph<String, String, Integer> graph = loadGraph("sample-graph1-input.json");
+        Graph<String, String, Integer> graph = loadGraph("sample-graph-input.json");
         System.out.println(graph.toString());
 
-        Traverser<String> traverser = new BreadthTraverser<>();
+        Traverser<String> traverser = new RecursiveDepthTraverser<>();
 
         System.out.println("TRAVERSE");
         traverser.printTraverse(graph, "A");
