@@ -68,6 +68,17 @@ public class ObjectGraph<T, K, V> implements Graph<T, K, V> {
     }
 
     @Override
+    public List<Pair<T, Integer>> getNeighbourDistances(T vertex) {
+        List<Pair<T, Integer>> list = new LinkedList<>();
+        for (Edge e : this.edges) {
+            if (e.from.equals(vertex)) {
+                list.add(new Pair(e.to, e.attributes.get("weight")));
+            }
+        }
+        return list;
+    }
+
+    @Override
     public List<T> getVerteces() {
         return this.verteces;
     }

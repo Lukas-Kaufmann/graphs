@@ -65,6 +65,11 @@ public class AdjacencylistGraph<T, K, V> implements Graph<T, K, V> {
     }
 
     @Override
+    public List<Pair<T, Integer>> getNeighbourDistances(T vertex) {
+        return adjacencyList.get(vertex).stream().map((it) -> new Pair<>(it.first, (Integer) it.second.get("weight"))).collect(Collectors.toList());
+    }
+
+    @Override
     public List<T> getVerteces() {
         return this.adjacencyList.keySet().stream().toList();
     }

@@ -1,6 +1,7 @@
-package at.fhv.lka2;
+package at.fhv.lka2.traverser;
 
-import java.util.Collections;
+import at.fhv.lka2.Graph;
+
 import java.util.LinkedList;
 import java.util.List;
 

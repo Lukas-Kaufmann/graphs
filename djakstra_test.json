@@ -1,0 +1,82 @@
+{
+  "vertexes": [
+    "A", "B", "C", "D", "E"
+  ],
+  "edges": [
+    {
+      "from": "A",
+      "to": "B",
+      "attributes": {
+        "weight" : 6
+      }
+    },
+    {
+      "from": "B",
+      "to": "A",
+      "attributes": {
+        "weight" : 6
+      }
+    },{
+      "from": "B",
+      "to": "C",
+      "attributes": {
+        "weight" : 2
+      }
+    },{
+      "from": "C",
+      "to": "B",
+      "attributes": {
+        "weight" : 2
+      }
+    },{
+      "from": "A",
+      "to": "C",
+      "attributes": {
+        "weight" : 13
+      }
+    },{
+      "from": "C",
+      "to": "A",
+      "attributes": {
+        "weight" : 13
+      }
+    },
+    {
+      "from": "B",
+      "to": "D",
+      "attributes": {
+        "weight": 3
+      }
+    },{
+      "from": "D",
+      "to": "B",
+      "attributes": {
+        "weight" : 3
+      }
+    },{
+      "from": "C",
+      "to": "E",
+      "attributes": {
+        "weight" : 2
+      }
+    },{
+      "from": "E",
+      "to": "C",
+      "attributes": {
+        "weight" : 2
+      }
+    },{
+      "from": "B",
+      "to": "D",
+      "attributes": {
+        "weight" : 4
+      }
+    },{
+      "from": "D",
+      "to": "B",
+      "attributes": {
+        "weight" : 4
+      }
+    }
+  ]
+}

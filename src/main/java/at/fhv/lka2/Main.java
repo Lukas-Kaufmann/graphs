@@ -1,5 +1,7 @@
 package at.fhv.lka2;
 
+import at.fhv.lka2.traverser.RecursiveDepthTraverser;
+import at.fhv.lka2.traverser.Traverser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

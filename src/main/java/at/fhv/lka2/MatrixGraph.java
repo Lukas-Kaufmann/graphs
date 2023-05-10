@@ -1,6 +1,7 @@
 package at.fhv.lka2;
 
 import at.fhv.lka2.util.Pair;
+import jdk.jshell.spi.ExecutionControl;
 
 import java.util.*;
 
@@ -111,6 +112,11 @@ public class MatrixGraph<T, K, V> implements Graph<T, K, V> {
         }
 
         return list;
+    }
+
+    @Override
+    public List<Pair<T, Integer>> getNeighbourDistances(T vertex) {
+        throw new IllegalStateException("not implemented");
     }
 
     @Override
