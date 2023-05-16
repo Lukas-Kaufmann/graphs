@@ -52,3 +52,13 @@ The traverse() method can then be called on any graph.
 Determining whether or not a graph contains a euler path is done by checking the order of each vertex.
 
 If a graph contains more than two verteces with odd order it doesn't contain an euler path.
+
+
+## Djakstra
+
+was implemented in the Graph interface relying on the implementations providing collections of verteces and weights to the neighbours of verteces
+
+
+## prim/kraskul
+
+was not implemented.

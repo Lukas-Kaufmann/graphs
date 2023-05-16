@@ -42,6 +42,34 @@ public class Main {
         return graph;
     }
 
+    public static ObjectGraph<String, String, Integer> loadObjectGraph(String filename) throws IOException {
+        ObjectGraph<String, String, Integer> graph = new ObjectGraph<>();
+        Path filePath = Path.of(filename);
+
+        String content = Files.readString(filePath);
+        JSONObject obj = new JSONObject(content);
+
+        JSONArray vertexes = obj.getJSONArray("vertexes");
+
+        for (Iterator<Object> it = vertexes.iterator(); it.hasNext(); ) {
+            Object v = it.next();
+            graph.addVertex((String) v);
+        }
+
+        JSONArray edges = obj.getJSONArray("edges");
+        for (int i = 0; i < edges.length(); i+=1) {
+            JSONObject edge = edges.getJSONObject(i);
+            Map<String, Object> attributesObj = edge.getJSONObject("attributes").toMap();
+            Map<String, Integer> attributes = new HashMap<>();
+            for (Map.Entry<String, Object> entry : attributesObj.entrySet()) {
+                attributes.put(entry.getKey(), (Integer) entry.getValue());
+            }
+            graph.addDirectedEdge(edge.getString("from"), edge.getString("to"), attributes);
+        }
+
+        return graph;
+    }
+
     public static void main(String[] args) throws IOException {
         Graph<String, String, Integer> graph = loadGraph("sample-graph-input.json");
         System.out.println(graph.toString());

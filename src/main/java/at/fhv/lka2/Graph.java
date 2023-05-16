@@ -4,7 +4,7 @@ import at.fhv.lka2.util.Pair;
 
 import java.util.*;
 
-public interface Graph<T, K, V> {
+public interface Graph<T, K, V extends Comparable> {
     void addVertex(T vertex);
 
     void addDirectedEdge(T source, T destination, Map<K, V> attributes);
@@ -20,6 +20,8 @@ public interface Graph<T, K, V> {
     List<Pair<T, Integer>> getNeighbourDistances(T vertex);
 
     List<T> getVerteces();
+
+    List<Edge<T, K, V>> getEdges();
 
     default boolean hasEulerPath() {
         List<T> verteces = getVerteces();
@@ -64,9 +66,4 @@ public interface Graph<T, K, V> {
 
         return lengths.entrySet().stream().map((entry) -> new Pair<>(entry.getKey(), entry.getValue())).toList();
     }
-
-    default void prim() {
-
-    }
-
 }

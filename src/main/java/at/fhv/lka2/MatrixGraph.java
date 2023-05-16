@@ -5,7 +5,7 @@ import jdk.jshell.spi.ExecutionControl;
 
 import java.util.*;
 
-public class MatrixGraph<T, K, V> implements Graph<T, K, V> {
+public class MatrixGraph<T, K, V extends Comparable> implements Graph<T, K, V> {
     private int[][] adjacencyMatrix;
     private Map<T, Integer> vertexIndices;
 
@@ -122,6 +122,12 @@ public class MatrixGraph<T, K, V> implements Graph<T, K, V> {
     @Override
     public List<T> getVerteces() {
         return this.vertexIndices.keySet().stream().toList();
+    }
+
+    @Override
+    public List<Edge<T, K, V>> getEdges() {
+        //TODO
+        return new LinkedList<>();
     }
 
 

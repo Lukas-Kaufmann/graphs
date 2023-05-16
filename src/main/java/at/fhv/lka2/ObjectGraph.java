@@ -6,25 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class ObjectGraph<T, K, V> implements Graph<T, K, V> {
+public class ObjectGraph<T, K, V extends Comparable> implements Graph<T, K, V> {
 
-    private class Edge {
-        private T from;
-        private T to;
 
-        private Map<K, V> attributes;
-
-        private Edge(T from, T to, Map<K,V> attributes) {
-            this.from = from;
-            this.to = to;
-            this.attributes = attributes;
-        }
-
-    }
 
     private List<T> verteces;
 
-    private List<Edge> edges;
+    private List<Edge<T, K, V>> edges;
 
     public ObjectGraph() {
         this.verteces = new LinkedList<>();
@@ -61,7 +49,7 @@ public class ObjectGraph<T, K, V> implements Graph<T, K, V> {
         List<T> list = new LinkedList<>();
         for (Edge e : this.edges) {
             if (e.from.equals(vertex)) {
-                list.add(e.to);
+                list.add((T) e.to);
             }
         }
         return list;
@@ -81,6 +69,11 @@ public class ObjectGraph<T, K, V> implements Graph<T, K, V> {
     @Override
     public List<T> getVerteces() {
         return this.verteces;
+    }
+
+    @Override
+    public List<Edge<T, K, V>> getEdges() {
+        return this.edges;
     }
 
 }

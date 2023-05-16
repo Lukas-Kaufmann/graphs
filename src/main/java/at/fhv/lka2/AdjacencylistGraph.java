@@ -6,7 +6,7 @@ import at.fhv.lka2.util.Pair;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class AdjacencylistGraph<T, K, V> implements Graph<T, K, V> {
+public class AdjacencylistGraph<T, K, V extends Comparable> implements Graph<T, K, V> {
     private Map<T, List<Pair<T, Map<K, V>>>> adjacencyList;
 
     public AdjacencylistGraph() {
@@ -72,6 +72,21 @@ public class AdjacencylistGraph<T, K, V> implements Graph<T, K, V> {
     @Override
     public List<T> getVerteces() {
         return this.adjacencyList.keySet().stream().toList();
+    }
+
+    @Override
+    public List<Edge<T, K, V>> getEdges() {
+        List<Edge<T, K, V>> edges = new LinkedList<>();
+
+        for (Map.Entry<T, List<Pair<T, Map<K, V>>>> vertex : this.adjacencyList.entrySet()) {
+
+            for (Pair<T, Map<K, V>> neighbour : vertex.getValue()) {
+                edges.add(new Edge(vertex.getKey(), neighbour.first, neighbour.second));
+            }
+
+        }
+
+        return edges;
     }
 
     @Override
